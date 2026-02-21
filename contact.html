@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> EVELYN'S WORLD</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="product.html">Products</a></li>
+<li><a href="contact.html" class="active">Contact</a></li>
+</ul>
+</nav>
+
+<!-- Contact Section -->
+<section class="about-container">
+<h1>EVELYN'S WORLD</h1>
+<p>For enquiries, orders or collaborations, reach out through any of the platforms below.</p>
+
+<!-- Your Details -->
+<div class="feature">
+<h3>Connect With Us</h3>
+
+<p><strong>Email:</strong> fredevelyn877@gmail.com.com</p>
+
+<p><strong>Instagram:</strong> 
+<a href="https://instagram.com/quiet_catalyst01" target="_blank">
+@quiet_catalyst01
+</a>
+</p>
+
+<p><strong>LinkedIn:</strong> 
+<a href="https://linkedin.com/in/Fred Evelyn" target="_blank">
+Fred Evelyn 
+</a>
+</p>
+
+</div>
+
+<br>
+
+<!-- Contact Form -->
+<form id="contactForm">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Message" required style="height:120px;"></textarea>
+
+<button type="submit">Send Message</button>
+</form>
+
+<br>
+
+<button onclick="window.location.href='index.html'">Back to Home</button>
+
+</section>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+e.preventDefault();
+alert("Message sent successfully!");
+window.location.href="index.html";
+});
+</script>
+
+</body>
+</html>

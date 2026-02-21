@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart - EVELYN'S WORLD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="product.html">Products</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <section class="cart-section">
+    <h2>Your Cart</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total</td>
+          <td id="cart-total">$0</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Proceed to Payment Button -->
+    <div style="text-align:center; margin-top:30px;">
+      <button onclick="window.location.href='payment.html'">Proceed to payment</button>
+    </div>
+
+  </section>
+
+  <script>
+    // Load cart from localStorage
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+    function updateCartTable(){
+      const tbody = document.querySelector("#cart-table tbody");
+      tbody.innerHTML = '';
+
+      let total = 0;
+
+      for(let name in cart){
+        const item = cart[name];
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${name}</td>
+          <td>$${item.price}</td>
+          <td>${item.quantity}</td>
+          <td>$${subtotal}</td>
+          <td><button onclick="removeFromCart('${name}')">Remove</button></td>
+        `;
+        tbody.appendChild(tr);
+      }
+
+      document.getElementById('cart-total').textContent = `$${total}`;
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function removeFromCart(name){
+      delete cart[name];
+      updateCartTable();
+    }
+
+    updateCartTable();
+  </script>
+
+</body>
+</html>

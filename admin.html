@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - EVELYN'S WORLD</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="admin.html" class="active">Admin</a></li>
+</ul>
+</nav>
+
+<section class="about-container">
+<h1>Admin Dashboard</h1>
+<h3>Customer Orders</h3>
+
+<ul id="orderList"></ul>
+
+<button onclick="clearOrders()">Clear Orders</button>
+</section>
+
+<script>
+function loadOrders(){
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+let list = document.getElementById("orderList");
+list.innerHTML = "";
+
+orders.forEach(order=>{
+let li = document.createElement("li");
+li.textContent = order;
+list.appendChild(li);
+});
+}
+
+function clearOrders(){
+localStorage.removeItem("orders");
+alert("Orders cleared");
+loadOrders();
+}
+
+loadOrders();
+</script>
+
+</body>
+</html>

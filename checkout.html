@@ -1,0 +1,42 @@
+s<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout - EVELYN'S WORLD</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="product.html">Products</a></li>
+<li><a href="cart.html">Cart</a></li>
+<li><a href="checkout.html" class="active">Checkout</a></li>
+</ul>
+</nav>
+
+<section class="about-container">
+<h1>Checkout</h1>
+
+<form id="checkoutForm">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<input type="text" placeholder="Address" required>
+<input type="text" placeholder="Phone Number" required>
+
+<button type="submit">Proceed to Payment</button>
+</form>
+</section>
+
+<script>
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+e.preventDefault();
+alert("Proceeding to payment...");
+window.location.href = "payment.html";
+});
+</script>
+
+</body>
+</html>

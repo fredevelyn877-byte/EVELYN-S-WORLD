@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment - EVELYN'S WORLD</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="product.html">Products</a></li>
+<li><a href="cart.html">Cart</a></li>
+<li><a href="checkout.html">Checkout</a></li>
+</ul>
+</nav>
+
+<section class="about-container">
+<h1>Payment</h1>
+<p>Select payment method</p>
+
+<button onclick="payNow()">Pay with Card</button>
+<button onclick="payNow()">Pay with Transfer</button>
+<button onclick="payNow()">Pay on Delivery</button>
+</section>
+
+<script>
+function payNow(){
+alert("Payment successful! Order received.");
+
+// Save order to admin dashboard
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+orders.push("New order received - " + new Date().toLocaleString());
+localStorage.setItem("orders", JSON.stringify(orders));
+
+window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
